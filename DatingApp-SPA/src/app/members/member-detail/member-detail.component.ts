@@ -22,6 +22,10 @@ export class MemberDetailComponent implements OnInit {
       this.user = data['user'];
     });
 
+    if (!this.user.photoUrl) {
+      this.user.photoUrl = '../../../assets/user.png';
+    }
+
     this.galleryOptions = [
       {
         width: '500px',

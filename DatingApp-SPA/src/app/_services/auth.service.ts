@@ -15,7 +15,8 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-  photoUrl = new BehaviorSubject<string>('');
+  defaultPhotoUrl = '../../assets/user.png';
+  photoUrl = new BehaviorSubject<string>(this.defaultPhotoUrl);
   currentUserPhotoUrl = this.photoUrl.asObservable();
 
   constructor(private http: HttpClient, private userService: UserService) { }
@@ -33,8 +34,13 @@ export class AuthService {
     );
   }
 
-  register(model: any) {
-    return this.http.post(this.baseUrl + 'register', model);
+  logout() {
+    localStorage.removeItem('token');
+    this.photoUrl.next(this.defaultPhotoUrl);
+  }
+
+  register(user: User) {
+    return this.http.post(this.baseUrl + 'register', user);
   }
 
   loggedIn() {
@@ -43,8 +49,12 @@ export class AuthService {
   }
 
   setCurrentUserPhoto() {
-    this.userService.getUser(this.decodedToken.nameid).subscribe(user => {
-      this.photoUrl.next(user.photoUrl);
-    });
+    if (this.loggedIn()) {
+      this.userService.getUser(this.decodedToken.nameid).subscribe(user => {
+        if (user.photoUrl) {
+          this.photoUrl.next(user.photoUrl);
+        }
+      });
+    }
   }
 }
