@@ -16,7 +16,9 @@ export class AuthService {
   decodedToken: any;
 
   defaultPhotoUrl = '../../assets/user.png';
+  user = new BehaviorSubject<User>(new User());
   photoUrl = new BehaviorSubject<string>(this.defaultPhotoUrl);
+  currentUser = this.user.asObservable();
   currentUserPhotoUrl = this.photoUrl.asObservable();
 
   constructor(private http: HttpClient, private userService: UserService) { }
@@ -28,7 +30,7 @@ export class AuthService {
         if (user) {
           localStorage.setItem('token', user.token);
           this.decodedToken = this.jwtHelper.decodeToken(user.token);
-          this.setCurrentUserPhoto();
+          this.setCurrentUser();
         }
       })
     );
@@ -48,10 +50,11 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  setCurrentUserPhoto() {
+  setCurrentUser() {
     if (this.loggedIn()) {
       this.userService.getUser(this.decodedToken.nameid).subscribe(user => {
         if (user.photoUrl) {
+          this.user.next(user);
           this.photoUrl.next(user.photoUrl);
         }
       });

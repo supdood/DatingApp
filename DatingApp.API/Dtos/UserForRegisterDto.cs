@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using DatingApp.API.Attributes;
 
 namespace DatingApp.API.Dtos
 {
@@ -15,6 +16,7 @@ namespace DatingApp.API.Dtos
         [Required]
         public string KnownAs { get; set; }
         [Required]
+        [DateRange]
         public DateTime DateOfBirth { get; set; }
         [Required]
         public string City { get; set; }

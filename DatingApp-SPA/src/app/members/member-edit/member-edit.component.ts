@@ -47,6 +47,6 @@ export class MemberEditComponent implements OnInit {
 
   updateMainPhoto(photoUrl: string) {
     this.user.photoUrl = photoUrl;
-    this.authService.setCurrentUserPhoto();
+    this.authService.setCurrentUser();
   }
 }

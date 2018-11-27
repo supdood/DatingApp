@@ -1,6 +1,6 @@
 import { Photo } from './photo';
 
-export interface User {
+export class User {
   id: number;
   user: string;
   knownAs: string;

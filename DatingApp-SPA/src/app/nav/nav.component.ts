@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
      private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
-    this.authService.setCurrentUserPhoto();
+    this.authService.setCurrentUser();
     this.authService.currentUserPhotoUrl.subscribe(photoUrl => {
       this.photoUrl = photoUrl;
     });
