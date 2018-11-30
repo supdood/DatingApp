@@ -15,4 +15,5 @@ export class User {
   introduction?: string;
   lookingFor?: string;
   photos?: Photo[];
+  liked: boolean;
 }

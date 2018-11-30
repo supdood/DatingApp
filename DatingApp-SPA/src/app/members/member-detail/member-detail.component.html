@@ -24,8 +24,9 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button class="btn btn-primary w-100">Like</button>
-            <button class="btn btn-secondary w-100">Message</button>
+            <button class="btn btn-primary w-100" *ngIf="!user.liked" (click)="sendLike(user.id)">Like</button>
+            <button class="btn btn-secondary w-100" *ngIf="user.liked" (click)="removeLike(user.id)">Liked <i class="fa fa-heart"></i></button>
+            <button class="btn btn-dark w-100">Message</button>
           </div>
         </div>
       </div>

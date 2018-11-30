@@ -5,8 +5,11 @@
       <li class="list-inline-item">
         <button class="btn btn-primary" [routerLink]="['/members/', user.id]"><i class="fa fa-user"></i></button>
       </li>
-      <li class="list-inline-item">
-        <button class="btn btn-primary"><i class="fa fa-heart"></i></button>
+      <li class="list-inline-item" *ngIf="user.liked">
+        <button class="btn btn-secondary" (click)=removeLike(user.id)><i class="fa fa-heart fa-lg"></i></button>
+      </li>
+      <li class="list-inline-item" *ngIf="!user.liked">
+        <button class="btn btn-primary" (click)=sendLike(user.id)><i class="fa fa-heart"></i></button>
       </li>
       <li class="list-inline-item">
         <button class="btn btn-primary"><i class="fa fa-envelope"></i></button>
