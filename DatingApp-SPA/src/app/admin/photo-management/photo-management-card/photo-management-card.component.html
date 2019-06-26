@@ -1,0 +1,15 @@
+<div class="card-img-wrapper">
+  <img class="img-thumbnail" src="{{ photo.url }}">
+</div>
+<div class="btn-group d-flex justify-content-center">
+  <li class="list-inline-item">
+    <button class="btn  btn-secondary" (click)=denyPhoto()>
+      <i class="fa fa-ban"></i>
+    </button>
+  </li>
+  <li class="list-inline-item">
+    <button class="btn  btn-primary" (click)=approvePhoto()>
+      <i class="fa fa-check"></i>
+    </button>
+  </li>
+</div>

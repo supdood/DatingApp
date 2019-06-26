@@ -1,0 +1,13 @@
+<div class="text-center mt-3">
+  <h2>Photos approval - {{ photos.length }} photos in queue</h2>
+</div>
+
+<div class="container mt-5">
+  <br>
+
+  <div class="row">
+    <div *ngFor="let photo of photos" class="col-lg-2 col-md-3 col-sm-6">
+      <app-photo-management-card [photo]="photo"></app-photo-management-card>
+    </div>
+  </div>
+</div>

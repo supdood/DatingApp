@@ -17,7 +17,6 @@ using Newtonsoft.Json;
 
 namespace DatingApp.API.Controllers
 {
-    [Authorize]
     [Route("api/users/{userId}/[controller]")]
     [ApiController]
     public class PhotosController: ControllerBase

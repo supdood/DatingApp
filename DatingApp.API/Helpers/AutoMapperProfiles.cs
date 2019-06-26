@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design;
 using System.Linq;
 using AutoMapper;
 using DatingApp.API.Dtos;
@@ -21,7 +22,7 @@ namespace DatingApp.API.Helpers
                 {
                     opt.ResolveUsing((src, dest, destMember, resContext) =>
                     {
-                        return src.Likers.Any(like => like.LikerId == (int)resContext.Items["userId"]);
+                        return src.Likers != null && src.Likers.Any(like => like.LikerId == (int)resContext.Items["userId"]);
                     });
                 });
             CreateMap<User, UserForDetailedDto>()
@@ -35,7 +36,7 @@ namespace DatingApp.API.Helpers
                 {
                     opt.ResolveUsing((src, dest, destMember, resContext) =>
                     {
-                        return src.Likers.Any(like => like.LikerId == (int)resContext.Items["userId"]);
+                        return src.Likees != null && src.Likers.Any(like => like.LikerId == (int)resContext.Items["userId"]);
                     });
                 });
             CreateMap<Photo, PhotoForDetailedDto>();
@@ -49,6 +50,7 @@ namespace DatingApp.API.Helpers
                     .MapFrom(u => u.Sender.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(m => m.RecipientPhotoUrl, opt => opt
                     .MapFrom(u => u.Recipient.Photos.FirstOrDefault(p => p.IsMain).Url));
+            CreateMap<Photo, PhotoForApprovalDto>();
         }
     }
 }

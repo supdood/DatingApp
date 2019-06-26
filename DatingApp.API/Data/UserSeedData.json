@@ -118,11 +118,11 @@
     "City": "Freetown",
     "Country": "Bouvet Island",
     "Photos": [
-        {
+      {
         "url": "https://randomuser.me/api/portraits/men/62.jpg",
         "isMain": true,
         "description": "Aliquip cillum nulla consequat eiusmod."
-        }
+      }
     ]
     },
     {
@@ -139,11 +139,11 @@
     "City": "Gardiner",
     "Country": "United Kingdom",
     "Photos": [
-        {
+      {
         "url": "https://randomuser.me/api/portraits/men/21.jpg",
         "isMain": true,
         "description": "Dolor proident qui esse in magna non eiusmod cupidatat duis proident est laborum."
-        }
+      }
     ]
     },
     {
@@ -160,11 +160,11 @@
     "City": "Lopezo",
     "Country": "Samoa",
     "Photos": [
-        {
+      {
         "url": "https://randomuser.me/api/portraits/men/65.jpg",
         "isMain": true,
         "description": "Amet fugiat cillum dolor eu ullamco veniam ex."
-        }
+      }
     ]
     },
     {
@@ -181,11 +181,11 @@
     "City": "Bennett",
     "Country": "Bangladesh",
     "Photos": [
-        {
+      {
         "url": "https://randomuser.me/api/portraits/men/85.jpg",
         "isMain": true,
         "description": "Exercitation exercitation nulla ullamco minim."
-        }
+      }
     ]
     },
     {
@@ -202,11 +202,11 @@
     "City": "Bend",
     "Country": "Iraq",
     "Photos": [
-        {
+      {
         "url": "https://randomuser.me/api/portraits/men/37.jpg",
         "isMain": true,
         "description": "Dolore proident dolor culpa laboris consequat quis."
-        }
+      }
     ]
     }
   ]

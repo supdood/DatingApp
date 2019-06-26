@@ -45,6 +45,15 @@ namespace DatingApp.API.Data
             return await _dataContext.Photos.FirstOrDefaultAsync(p => p.IsMain && p.UserId == userId);
         }
 
+        public async Task<IEnumerable<Photo>> GetUnapprovedPhotos()
+        {
+            return await _dataContext.Photos
+                .Include(p => p.User)
+                .Where(p => !p.IsApproved)
+                .OrderBy(p => p.DateAdded)
+                .ToListAsync();
+        }
+
         public async Task<Like> GetLike(int userId, int recipientId)
         {
             return await _dataContext.Likes.FirstOrDefaultAsync(u => u.LikerId == userId && u.LikeeId == recipientId);
